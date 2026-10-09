@@ -6,7 +6,8 @@ const { siteConfig } = require('./config/site');
 const {
   getPublishedPolicies,
   getPublishedPolicyById,
-  getChatbotPrivacyPolicy
+  getApplicationPrivacyPolicy,
+  getTermsAndConditions
 } = require('./data/privacyPolicies');
 const { validateContactPayload } = require('./utils/validation');
 const { adminRouter } = require('./modules/admin/adminRouter');
@@ -38,7 +39,7 @@ app.get('/robots.txt', (_req, res) => {
 });
 
 app.get('/sitemap.xml', (_req, res) => {
-  const pages = ['/', '/servicios', '/privacidad', '/politica-de-privacidad/'];
+  const pages = ['/', '/servicios', '/privacidad', '/politica-de-privacidad/', '/terminos-y-condiciones/'];
   const policyPages = getPublishedPolicies().map((policy) => `/privacidad/${policy.id}`);
   const urls = [...pages, ...policyPages]
     .map((url) => `<url><loc>${siteConfig.site.baseUrl}${url}</loc></url>`)
@@ -163,15 +164,28 @@ app.get('/privacy', (_req, res) => {
 });
 
 app.get('/politica-de-privacidad/', (_req, res) => {
-  const policy = getChatbotPrivacyPolicy();
+  const policy = getApplicationPrivacyPolicy();
 
-  return res.render('pages/chatbot-privacy-policy', {
+  return res.render('pages/standalone-legal-document', {
     seo: {
       title: `${policy.title} | ${policy.businessName}`,
-      description: `Política de tratamiento de datos personales del chatbot de ${policy.businessName}.`,
+      description: `Política de tratamiento de datos personales de las aplicaciones de ${policy.businessName}.`,
       canonical: `${siteConfig.site.baseUrl}/politica-de-privacidad/`
     },
     policy
+  });
+});
+
+app.get('/terminos-y-condiciones/', (_req, res) => {
+  const document = getTermsAndConditions();
+
+  return res.render('pages/standalone-legal-document', {
+    seo: {
+      title: `${document.title} | ${document.businessName}`,
+      description: `Términos y condiciones de ${document.businessName}.`,
+      canonical: `${siteConfig.site.baseUrl}/terminos-y-condiciones/`
+    },
+    policy: document
   });
 });
 

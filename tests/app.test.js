@@ -22,12 +22,18 @@ test('GET /privacidad/camilo-proyectos returns published policy', async () => {
   assert.match(response.text, /Política de privacidad/);
 });
 
-test('GET /politica-de-privacidad/ returns the chatbot policy as a standalone page', async () => {
+test('GET /politica-de-privacidad/ returns the application policy as a standalone page', async () => {
   const response = await request(app).get('/politica-de-privacidad/');
   assert.equal(response.status, 200);
-  assert.match(response.text, /Política de Tratamiento de Datos Personales del Chatbot/);
-  assert.doesNotMatch(response.text, /site-header|site-footer|print-policy-button/);
   assert.match(response.text, /Política de Tratamiento de Datos Personales/);
+  assert.doesNotMatch(response.text, /site-header|site-footer|print-policy-button/);
+});
+
+test('GET /terminos-y-condiciones/ returns the standalone website terms', async () => {
+  const response = await request(app).get('/terminos-y-condiciones/');
+  assert.equal(response.status, 200);
+  assert.match(response.text, /Términos y condiciones/);
+  assert.doesNotMatch(response.text, /site-header|site-footer|print-policy-button/);
 });
 
 test('GET /privacidad/negocio-inexistente returns 404', async () => {

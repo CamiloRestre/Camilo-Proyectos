@@ -4,34 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= policy.title %> | <%= policy.businessName %></title>
-    <meta name="description" content="Política de tratamiento de datos personales del chatbot de Camilo Proyectos." />
+    <meta name="description" content="<%= seo.description %>" />
     <link rel="canonical" href="<%= seo.canonical %>" />
     <style>
-      :root {
-        color-scheme: light;
-        --text: #172033;
-        --muted: #5e687a;
-        --border: #dfe4ec;
-        --background: #f7f8fa;
-        --surface: #ffffff;
-        --accent: #2d5bba;
-      }
+      :root { color-scheme: light; --text: #172033; --muted: #5e687a; --border: #dfe4ec; --background: #f7f8fa; --surface: #fff; }
       * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        color: var(--text);
-        background: var(--background);
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.7;
-      }
+      body { margin: 0; color: var(--text); background: var(--background); font-family: Arial, Helvetica, sans-serif; line-height: 1.7; }
       main { width: min(860px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0 4rem; }
       article { background: var(--surface); border: 1px solid var(--border); padding: clamp(1.25rem, 4vw, 3rem); }
       h1 { margin: 0 0 .75rem; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.2; }
       h2 { margin-top: 2rem; font-size: 1.25rem; line-height: 1.35; }
-      p, li { color: var(--text); }
       .meta { color: var(--muted); font-size: .95rem; }
       .responsible { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 2rem 0; padding: 1rem 0; }
-      a { color: var(--accent); }
+      a { color: #2d5bba; }
     </style>
   </head>
   <body>
@@ -39,16 +24,16 @@
       <article>
         <h1><%= policy.title %></h1>
         <p class="meta"><%= policy.businessName %> · Vigencia: <%= policy.effectiveDate %> · Versión: <%= policy.version %> · Última actualización: <%= policy.lastUpdated %></p>
-
+        <% if (policy.dataController) { %>
         <section class="responsible">
           <h2>Responsable del tratamiento</h2>
           <p><strong>Nombre:</strong> <%= policy.dataController.name %></p>
           <p><strong>Correo:</strong> <a href="mailto:<%= policy.dataController.email %>"><%= policy.dataController.email %></a></p>
           <p><strong>Ubicación:</strong> <%= policy.dataController.location %></p>
         </section>
-
+        <% } %>
         <% policy.sections.forEach((section) => { %>
-        <section id="<%= section.id %>">
+        <section>
           <h2><%= section.title %></h2>
           <% if (section.paragraphs) { section.paragraphs.forEach((paragraph) => { %>
           <p><%= paragraph %></p>
