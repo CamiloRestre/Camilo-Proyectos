@@ -13,11 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.disable('x-powered-by');
 
-app.use(
-  helmet({
-    contentSecurityPolicy: false
-  })
-);
+app.use(helmet());
 app.use(express.urlencoded({ extended: false, limit: '32kb' }));
 app.use(express.json({ limit: '32kb' }));
 app.use(express.static(path.join(__dirname, '..', 'public'), { maxAge: '1d' }));

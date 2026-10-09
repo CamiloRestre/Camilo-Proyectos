@@ -48,3 +48,10 @@ if (form && formStatus) {
     }
   });
 }
+
+const printPolicyButton = document.getElementById('print-policy-button');
+if (printPolicyButton) {
+  printPolicyButton.addEventListener('click', () => {
+    window.print();
+  });
+}

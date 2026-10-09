@@ -2,6 +2,24 @@ function sanitizeValue(value) {
   return String(value || '').trim();
 }
 
+function isValidEmail(email) {
+  if (!email || email.length > 160 || email.includes(' ')) {
+    return false;
+  }
+
+  const parts = email.split('@');
+  if (parts.length !== 2) {
+    return false;
+  }
+
+  const [localPart, domain] = parts;
+  if (!localPart || !domain || domain.startsWith('.') || domain.endsWith('.')) {
+    return false;
+  }
+
+  return domain.includes('.');
+}
+
 function validateContactPayload(payload) {
   const errors = [];
 
@@ -14,8 +32,7 @@ function validateContactPayload(payload) {
     errors.push('El nombre debe tener entre 2 y 120 caracteres.');
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email || !emailRegex.test(email) || email.length > 160) {
+  if (!isValidEmail(email)) {
     errors.push('Ingresa un correo electrónico válido.');
   }
 
