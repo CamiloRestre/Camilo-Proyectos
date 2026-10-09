@@ -100,6 +100,10 @@ Implementación pendiente: autenticación segura, sesiones, editor y publicació
 
 ## Despliegue en Render
 
+Este proyecto debe desplegarse en Render como **Web Service**, no como Static Site.
+El servidor Express renderiza las vistas EJS, procesa el formulario de contacto y
+expone el endpoint `/health`.
+
 1. Conecta el repositorio en Render como Web Service.
 2. Build command: `npm install`.
 3. Start command: `npm start`.
