@@ -8,8 +8,8 @@
       <h1>Transformo ideas en soluciones digitales</h1>
       <p class="lead">Desarrollo de software, chatbots, páginas web y automatizaciones diseñadas para ayudar a los negocios a trabajar mejor.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/" data-section="contacto">Quiero desarrollar mi proyecto</a>
-        <a class="btn btn-secondary" href="/" data-section="servicios">Explorar servicios</a>
+        <a class="btn btn-primary" href="/?seccion=contacto" data-section="contacto">Quiero desarrollar mi proyecto</a>
+        <a class="btn btn-secondary" href="/?seccion=servicios" data-section="servicios">Explorar servicios</a>
       </div>
     </div>
     <div class="hero-card" aria-hidden="true">
@@ -26,12 +26,12 @@
     <h2>Servicios</h2>
     <div class="grid cards">
       <% services.forEach((service) => { %>
-      <article class="card">
+      <article class="card tilt-card">
         <p class="icon"><%= service.icon %></p>
         <h3><%= service.title %></h3>
         <p><%= service.description %></p>
         <p class="muted"><strong>Beneficio:</strong> <%= service.benefit %></p>
-        <a class="link" href="/" data-section="contacto">Solicitar información</a>
+        <a class="link" href="/?seccion=contacto" data-section="contacto">Solicitar información</a>
       </article>
       <% }) %>
     </div>
@@ -50,7 +50,7 @@
     <% if (!projects.length) { %>
     <div class="card empty-state">
       <p>Próximamente se publicarán proyectos reales con sus detalles técnicos y enlaces.</p>
-      <a class="btn btn-secondary" href="/" data-section="servicios">Consultar servicios</a>
+      <a class="btn btn-secondary" href="/?seccion=servicios" data-section="servicios">Consultar servicios</a>
     </div>
     <% } %>
   </section>

@@ -63,7 +63,9 @@ a { color: #9bb5ff; }
 
 .grid { display: grid; gap: 1rem; }
 .cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-.card { padding: 1rem 1.1rem; }
+.card { padding: 1rem 1.1rem; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.tilt-card { transform-style: preserve-3d; will-change: transform; }
+.tilt-card:hover { border-color: rgba(155, 181, 255, .55); box-shadow: 0 18px 48px rgba(0, 0, 0, .38); }
 .icon { font-size: 1.35rem; margin: 0 0 .4rem; }
 .muted { color: var(--muted); }
 .empty-state { text-align: center; }

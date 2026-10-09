@@ -2,10 +2,19 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
 const requestedSection = new URLSearchParams(window.location.search).get('seccion');
-const pendingSection = requestedSection || sessionStorage.getItem('camilo-scroll-section');
+let storedSection = null;
+try {
+  storedSection = sessionStorage.getItem('camilo-scroll-section');
+} catch (_error) {
+  storedSection = null;
+}
+const pendingSection = requestedSection || storedSection;
 if (pendingSection && window.location.pathname === '/') {
   const section = document.getElementById(pendingSection);
-  sessionStorage.removeItem('camilo-scroll-section');
+  try {
+    sessionStorage.removeItem('camilo-scroll-section');
+  } catch (_error) {
+  }
 
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -19,7 +28,7 @@ document.querySelectorAll('a[data-section]').forEach((link) => {
 
     if (!section) {
       event.preventDefault();
-      window.location.assign(`/?seccion=${encodeURIComponent(link.dataset.section)}`);
+      window.location.assign(link.href);
       return;
     }
 
@@ -41,6 +50,19 @@ if (menuToggle && nav) {
     nav.classList.toggle('open', !expanded);
   });
 }
+
+document.querySelectorAll('.tilt-card').forEach((card) => {
+  card.addEventListener('pointermove', (event) => {
+    const bounds = card.getBoundingClientRect();
+    const rotateX = ((event.clientY - bounds.top) / bounds.height - 0.5) * -8;
+    const rotateY = ((event.clientX - bounds.left) / bounds.width - 0.5) * 8;
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  });
+
+  card.addEventListener('pointerleave', () => {
+    card.style.transform = '';
+  });
+});
 
 const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
