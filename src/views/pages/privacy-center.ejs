@@ -1,0 +1,27 @@
+<%- include('../partials/head', { seo }) %>
+<%- include('../partials/header') %>
+
+<main class="container section legal">
+  <h1>Privacidad y protección de datos</h1>
+  <p>Este centro reúne la política de privacidad de Camilo Proyectos y las políticas públicas publicadas por negocio.</p>
+
+  <section class="card">
+    <h2>Política de Camilo Proyectos</h2>
+    <p><a class="link" href="/privacidad/camilo-proyectos">Ver política vigente</a></p>
+  </section>
+
+  <section class="card">
+    <h2>Directorio de políticas publicadas</h2>
+    <% if (policies.length) { %>
+    <ul>
+      <% policies.forEach((policy) => { %>
+      <li><a href="/privacidad/<%= policy.id %>"><%= policy.businessName %></a></li>
+      <% }) %>
+    </ul>
+    <% } else { %>
+    <p>No hay políticas de clientes publicadas en este momento.</p>
+    <% } %>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,28 @@
+{
+  "name": "camilo-proyectos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "lint": "echo \"No lint configured\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://localhost:26831/CamiloRestre/Camilo-Proyectos"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^7.0.1",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.1"
+  }
+}

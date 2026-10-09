@@ -1,0 +1,10 @@
+<%- include('../partials/head', { seo }) %>
+<%- include('../partials/header') %>
+<main class="container section">
+  <article class="card error-card">
+    <h1>Error <%= status %></h1>
+    <p><%= message %></p>
+    <a class="btn btn-primary" href="/">Volver al inicio</a>
+  </article>
+</main>
+<%- include('../partials/footer') %>

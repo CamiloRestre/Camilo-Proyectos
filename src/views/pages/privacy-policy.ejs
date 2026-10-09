@@ -1,0 +1,96 @@
+<%- include('../partials/head', { seo }) %>
+<%- include('../partials/header') %>
+
+<main class="container section legal">
+  <div class="legal-top">
+    <div>
+      <p class="eyebrow"><%= policy.businessName %></p>
+      <h1>Política de privacidad</h1>
+      <p>Vigencia: <%= policy.effectiveDate %> · Versión: <%= policy.version %> · Última actualización: <%= policy.lastUpdated %></p>
+    </div>
+    <button class="btn btn-secondary" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+
+  <nav class="card" aria-label="Índice de la política">
+    <ol>
+      <li><a href="#responsable">Responsable del tratamiento</a></li>
+      <li><a href="#finalidades">Finalidades</a></li>
+      <li><a href="#datos">Categorías de datos</a></li>
+      <li><a href="#canales">Canales y sistemas</a></li>
+      <li><a href="#destinatarios">Destinatarios</a></li>
+      <li><a href="#conservacion">Conservación</a></li>
+      <li><a href="#derechos">Derechos y reclamaciones</a></li>
+    </ol>
+  </nav>
+
+  <section id="responsable" class="card">
+    <h2>Responsable del tratamiento</h2>
+    <p><strong>Nombre:</strong> <%= policy.dataController.name %></p>
+    <p><strong>Rol:</strong> <%= policy.dataController.role %></p>
+    <p><strong>Correo:</strong> <%= policy.dataController.email %></p>
+    <p><strong>Ubicación:</strong> <%= policy.dataController.location %></p>
+    <% if (policy.legalName) { %><p><strong>Razón social:</strong> <%= policy.legalName %></p><% } %>
+    <p><strong>Encargado (si aplica):</strong> <%= policy.processor.name %></p>
+    <p><%= policy.processor.details %></p>
+  </section>
+
+  <section id="finalidades" class="card">
+    <h2>Finalidades del tratamiento</h2>
+    <ul>
+      <% policy.purposes.forEach((item) => { %>
+      <li><%= item %></li>
+      <% }) %>
+    </ul>
+  </section>
+
+  <section id="datos" class="card">
+    <h2>Categorías de datos personales</h2>
+    <ul>
+      <% policy.personalDataCategories.forEach((item) => { %>
+      <li><%= item %></li>
+      <% }) %>
+    </ul>
+  </section>
+
+  <section id="canales" class="card">
+    <h2>Canales y sistemas utilizados</h2>
+    <ul>
+      <% policy.channelsAndSystems.forEach((item) => { %>
+      <li><%= item %></li>
+      <% }) %>
+    </ul>
+  </section>
+
+  <section id="destinatarios" class="card">
+    <h2>Destinatarios y proveedores</h2>
+    <ul>
+      <% policy.recipients.forEach((item) => { %>
+      <li><%= item %></li>
+      <% }) %>
+    </ul>
+  </section>
+
+  <section id="conservacion" class="card">
+    <h2>Conservación</h2>
+    <p><%= policy.retentionCriteria %></p>
+  </section>
+
+  <section id="derechos" class="card">
+    <h2>Derechos, consultas y reclamaciones</h2>
+    <ul>
+      <% policy.rights.forEach((item) => { %>
+      <li><%= item %></li>
+      <% }) %>
+    </ul>
+    <p><strong>Procedimiento:</strong> <%= policy.claimsProcedure %></p>
+    <p><strong>Canal de ejercicio de derechos:</strong> <%= policy.rightsChannel %></p>
+  </section>
+
+  <section class="card note">
+    <p><strong>Nota importante:</strong> <%= policy.notes %></p>
+  </section>
+
+  <p><a class="link" href="/privacidad">← Volver al centro de privacidad</a></p>
+</main>
+
+<%- include('../partials/footer') %>

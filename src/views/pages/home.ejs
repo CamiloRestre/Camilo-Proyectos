@@ -1,0 +1,111 @@
+<%- include('../partials/head', { seo }) %>
+<%- include('../partials/header') %>
+
+<main id="inicio">
+  <section class="hero container">
+    <div>
+      <p class="eyebrow">Desarrollo freelance</p>
+      <h1>Transformo ideas en soluciones digitales</h1>
+      <p class="lead">Desarrollo de software, chatbots, páginas web y automatizaciones diseñadas para ayudar a los negocios a trabajar mejor.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contacto">Quiero desarrollar mi proyecto</a>
+        <a class="btn btn-secondary" href="#servicios">Explorar servicios</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <div class="code-line"></div>
+      <div class="code-line short"></div>
+      <div class="code-line"></div>
+      <div class="nodes">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="container section">
+    <h2>Servicios</h2>
+    <div class="grid cards">
+      <% services.forEach((service) => { %>
+      <article class="card">
+        <p class="icon"><%= service.icon %></p>
+        <h3><%= service.title %></h3>
+        <p><%= service.description %></p>
+        <p class="muted"><strong>Beneficio:</strong> <%= service.benefit %></p>
+        <a class="link" href="#contacto">Solicitar información</a>
+      </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="container section">
+    <h2>Sobre mí</h2>
+    <div class="card">
+      <p>Soy Cristian Camilo Rescrepo, desarrollador de software freelancer ubicado en Tuluá, Valle del Cauca. Me enfoco en crear soluciones digitales prácticas para negocios, desde páginas web y chatbots hasta automatizaciones e integraciones tecnológicas.</p>
+      <p class="muted">Esta sección está preparada para ampliar información de experiencia, tecnologías y metodología de trabajo.</p>
+    </div>
+  </section>
+
+  <section id="proyectos" class="container section">
+    <h2>Proyectos</h2>
+    <% if (!projects.length) { %>
+    <div class="card empty-state">
+      <p>Próximamente se publicarán proyectos reales con sus detalles técnicos y enlaces.</p>
+      <a class="btn btn-secondary" href="#servicios">Consultar servicios</a>
+    </div>
+    <% } %>
+  </section>
+
+  <% if (testimonials.length) { %>
+  <section class="container section">
+    <h2>Testimonios</h2>
+  </section>
+  <% } %>
+
+  <section class="container section">
+    <h2>Proceso de trabajo</h2>
+    <ol class="process-list">
+      <% processSteps.forEach((step) => { %>
+      <li class="card"><%= step %></li>
+      <% }) %>
+    </ol>
+  </section>
+
+  <section id="contacto" class="container section">
+    <h2>Contacto</h2>
+    <div class="grid contact-grid">
+      <article class="card">
+        <p><strong>Correo:</strong> <a href="mailto:<%= siteConfig.brand.contactEmail %>"><%= siteConfig.brand.contactEmail %></a></p>
+        <p><strong>Ubicación:</strong> <%= siteConfig.brand.location %></p>
+        <p><strong>Modalidad:</strong> <%= siteConfig.brand.remoteMode %></p>
+      </article>
+      <form id="contact-form" class="card" novalidate>
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required minlength="2" maxlength="120" />
+
+        <label for="email">Correo</label>
+        <input id="email" name="email" type="email" required maxlength="160" />
+
+        <label for="projectType">Tipo de proyecto</label>
+        <select id="projectType" name="projectType" required>
+          <option value="">Selecciona una opción</option>
+          <option value="pagina-web">Página web</option>
+          <option value="chatbot">Chatbot</option>
+          <option value="automatizacion-make">Automatización con Make</option>
+          <option value="app-medida">Aplicación a medida</option>
+          <option value="integracion-api">Integración de APIs</option>
+          <option value="mantenimiento">Mantenimiento</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="description">Descripción</label>
+        <textarea id="description" name="description" rows="5" required minlength="20" maxlength="2000"></textarea>
+
+        <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+        <p id="form-status" role="status" aria-live="polite"></p>
+        <p class="muted">Si el proveedor de correo aún no está configurado, verás un mensaje para completar variables de entorno.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
