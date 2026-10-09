@@ -49,129 +49,98 @@ const privacyPolicies = [
   }
 ];
 
-const standardPrivacyPolicy = {
-  id: 'politicas',
-  businessName: 'Política estándar de la aplicación',
-  title: 'Política de Tratamiento de Datos Personales',
-  effectiveDate: '2021-05-22',
+const chatbotPrivacyPolicy = {
+  id: 'chatbot-camilo-proyectos',
+  businessName: 'Camilo Proyectos',
+  title: 'Política de Tratamiento de Datos Personales del Chatbot',
+  effectiveDate: '2026-10-09',
   version: '1.0.0',
-  lastUpdated: '2026-04-01',
+  lastUpdated: '2026-10-09',
   dataController: {
-    name: 'La organización responsable de la aplicación',
+    name: 'Cristian Camilo Rescrepo - Camilo Proyectos',
     role: 'Responsable del tratamiento',
-    email: 'El correo oficial informado por cada aplicación',
-    location: 'La dirección oficial informada por cada aplicación',
-    phone: 'El teléfono oficial informado por cada aplicación'
+    email: 'camiloproyectos14@gmail.com',
+    location: 'Tuluá, Valle del Cauca, Colombia'
   },
   sections: [
     {
-      id: 'introduccion',
-      title: 'I. Introducción',
+      id: 'objeto',
+      title: '1. Objeto y alcance',
       paragraphs: [
-        'Esta política establece las reglas para la recolección, uso, almacenamiento, circulación y protección de los datos personales tratados mediante la aplicación y sus canales asociados.',
-        'La política se expide para dar cumplimiento a la Ley 1581 de 2012, el Decreto 1074 de 2015 y las demás normas que los modifiquen, adicionen o complementen. Aplica a clientes, usuarios, proveedores, empleados, colaboradores y cualquier persona natural cuyos datos sean tratados por la organización responsable o por terceros encargados.'
+        'Esta política informa cómo Camilo Proyectos recolecta, usa, almacena, protege y, cuando sea necesario, comparte datos personales a través del chatbot desarrollado y operado para sus clientes, así como de los canales de comunicación asociados.',
+        'El chatbot puede ser instalado o utilizado en canales de mensajería definidos para cada servicio. Esta política aplica al tratamiento realizado por Camilo Proyectos como desarrollador u operador del chatbot, sin reemplazar las políticas de privacidad de la empresa que contrata el servicio ni las políticas de las plataformas de mensajería utilizadas.'
       ]
     },
     {
-      id: 'definiciones',
-      title: 'II. Definiciones',
-      paragraphs: [
-        'Dato personal es cualquier información vinculada o asociada a una persona natural determinada o determinable. Titular es la persona cuyos datos son objeto de tratamiento. Tratamiento comprende la recolección, almacenamiento, uso, circulación, transmisión, transferencia y supresión de datos personales.',
-        'El Responsable decide sobre el tratamiento; el Encargado lo realiza por cuenta del Responsable. La autorización es el consentimiento previo, expreso e informado del Titular. Los datos sensibles son aquellos que afectan la intimidad o cuyo uso indebido puede generar discriminación.'
-      ]
-    },
-    {
-      id: 'principios',
-      title: 'III. Principios rectores',
+      id: 'datos',
+      title: '2. Datos que pueden ser tratados',
       items: [
-        'Legalidad, finalidad, libertad, veracidad o calidad, transparencia, seguridad y confidencialidad.',
-        'Acceso y circulación restringida, según la naturaleza de los datos y los límites establecidos por la Constitución y la ley.',
-        'El tratamiento se limita a finalidades legítimas, informadas y autorizadas, y se aplican medidas técnicas, humanas y administrativas para evitar pérdida, adulteración, consulta, uso o acceso no autorizado.'
-      ]
-    },
-    {
-      id: 'derechos',
-      title: 'IV. Derechos de los Titulares',
-      items: [
-        'Conocer, actualizar y rectificar sus datos personales.',
-        'Solicitar prueba de la autorización otorgada y ser informado sobre el uso de sus datos.',
-        'Solicitar la supresión de los datos o revocar la autorización cuando proceda legalmente.',
-        'Oponerse al tratamiento en los casos previstos por la ley y presentar quejas ante la Superintendencia de Industria y Comercio.'
-      ]
-    },
-    {
-      id: 'recoleccion',
-      title: 'V. Formas de recolección',
-      paragraphs: [
-        'Los datos pueden ser recolectados mediante la aplicación, el sitio web, formularios, contratos, correos electrónicos, llamadas, eventos, procesos de selección, vinculación de proveedores y la interacción con canales de mensajería como WhatsApp, Instagram y Facebook Messenger.',
-        'También pueden generarse datos técnicos como URL, navegador, dirección IP, identificadores de usuario y metadatos asociados a las comunicaciones, de acuerdo con las tecnologías y permisos utilizados.'
+        'Nombre, número telefónico, correo electrónico y otros datos de contacto que el usuario proporcione.',
+        'Contenido de los mensajes, solicitudes, preguntas, respuestas y archivos enviados al chatbot.',
+        'Datos necesarios para gestionar la solicitud del usuario, según el servicio contratado por el cliente de Camilo Proyectos.',
+        'Datos técnicos y de seguridad, como fecha y hora de interacción, identificadores técnicos, dirección IP o información del navegador cuando el canal los proporcione.'
       ]
     },
     {
       id: 'finalidades',
-      title: 'VI. Finalidades del tratamiento',
+      title: '3. Finalidades del tratamiento',
       items: [
-        'Crear y administrar cuentas, prestar los servicios contratados, atender solicitudes y brindar soporte.',
-        'Gestionar pedidos, recogidas, entregas, trámites, seguimiento de servicios y comunicaciones operativas o transaccionales.',
-        'Verificar información, prevenir fraude, gestionar riesgos, cumplir obligaciones contractuales, contables, fiscales y legales.',
-        'Mejorar productos, servicios, plataformas, chatbots y procesos mediante análisis operativos y estadísticos.',
-        'Gestionar relaciones con clientes, usuarios, empleados, candidatos, proveedores, aliados y socios.',
-        'Enviar comunicaciones comerciales o publicitarias únicamente cuando exista autorización previa, expresa e informada.',
-        'Transmitir o transferir datos a proveedores y aliados necesarios para la operación, dentro de los límites legales y contractuales.'
-      ]
-    },
-    {
-      id: 'ubicacion',
-      title: 'Tratamiento de datos de ubicación',
-      paragraphs: [
-        'Cuando la aplicación ofrezca funciones que dependan de la ubicación, podrá tratar coordenadas precisas, ubicación aproximada y datos de movimiento durante el uso autorizado de dichas funciones.',
-        'Estos datos se utilizarán únicamente para prestar las funcionalidades solicitadas, mejorar la operación y brindar seguridad. La aplicación informará el alcance del acceso y no compartirá la ubicación para finalidades ajenas a la prestación autorizada.',
-        'El usuario puede revocar el permiso de ubicación desde su dispositivo. La revocación puede impedir las funcionalidades que dependan de la geolocalización.'
+        'Responder preguntas, solicitudes y conversaciones iniciadas por el usuario.',
+        'Prestar, gestionar y dar seguimiento a los servicios, pedidos, reservas o trámites que el cliente del chatbot haya habilitado.',
+        'Escalar una conversación a una persona cuando sea necesario y brindar soporte.',
+        'Mantener registros de conversación para continuidad del servicio, control de calidad, seguridad y solución de incidentes.',
+        'Mejorar el funcionamiento, precisión y seguridad del chatbot.',
+        'Cumplir obligaciones legales, atender requerimientos de autoridades y prevenir fraude, abuso o usos no autorizados.',
+        'Enviar comunicaciones comerciales únicamente cuando exista autorización válida para ello.'
       ]
     },
     {
       id: 'autorizacion',
-      title: 'VII. Autorización y consentimiento',
+      title: '4. Autorización y uso de respuestas automatizadas',
       paragraphs: [
-        'La autorización debe ser previa, expresa e informada. Cada plataforma debe informar sus finalidades y solicitar la aceptación de esta política antes de realizar tratamientos que requieran consentimiento.',
-        'El uso de canales de mensajería o plataformas de terceros también está sujeto a sus propias políticas de privacidad y condiciones de uso.'
+        'El usuario autoriza el tratamiento cuando interactúa con el chatbot después de haber sido informado sobre esta política y sus finalidades, sin perjuicio de los casos en que la ley permita el tratamiento sin autorización.',
+        'El chatbot utiliza respuestas automatizadas. El usuario puede solicitar atención humana cuando el canal y el servicio lo permitan. Las respuestas automatizadas pueden contener errores y no sustituyen la revisión de un profesional cuando la decisión tenga efectos legales, financieros, médicos o similares.'
       ]
     },
     {
-      id: 'canales',
-      title: 'VIII. Canales de acceso y mecanismos',
+      id: 'encargados',
+      title: '5. Proveedores y terceros',
       paragraphs: [
-        'Las consultas, quejas y reclamos sobre datos personales pueden presentarse al área de servicio al cliente o al Oficial de Protección de Datos, por los canales habilitados en la plataforma y por escrito en KR 27 36 22, Tuluá, Valle del Cauca, Colombia.',
-        'Para solicitudes de proveedores, empleados y candidatos también se podrá utilizar el canal electrónico que la organización informe en cada relación. El canal general de contacto es informativo y no reemplaza los mecanismos formales de consulta, actualización, rectificación o supresión.'
+        'Camilo Proyectos puede utilizar proveedores de alojamiento, bases de datos, mensajería, correo, analítica, automatización o inteligencia artificial para operar el chatbot. Estos proveedores tratarán la información únicamente según las instrucciones, finalidades y medidas de seguridad aplicables.',
+        'El servicio puede estar integrado con plataformas de terceros. El usuario debe consultar también sus políticas de privacidad. Los datos no se venderán a terceros ni se utilizarán para finalidades distintas de las informadas y autorizadas.'
       ]
     },
     {
-      id: 'procedimiento',
-      title: 'IX. Procedimiento para consultas y reclamos',
+      id: 'seguridad',
+      title: '6. Seguridad y conservación',
       paragraphs: [
-        'Las consultas deben incluir nombre e identificación del Titular, descripción de la solicitud y datos de contacto. La organización responsable responderá las consultas dentro de los diez (10) días hábiles siguientes a su recepción, con la ampliación legal aplicable cuando no sea posible responder inicialmente.',
-        'Los reclamos por actualización, rectificación, supresión o presunto incumplimiento deben describir los hechos, la solicitud y los datos de contacto. Se atenderán dentro de los quince (15) días hábiles siguientes, con las ampliaciones y requerimientos previstos en la normativa vigente.'
+        'Se aplican medidas técnicas, humanas y administrativas razonables para proteger la información frente a pérdida, alteración, acceso, uso o divulgación no autorizados.',
+        'Los datos se conservarán durante el tiempo necesario para prestar el servicio, responder solicitudes, resolver controversias y cumplir obligaciones legales o contractuales. Después podrán eliminarse, anonimizarse o conservarse bloqueados cuando exista una obligación legal.'
       ]
     },
     {
-      id: 'sensibles',
-      title: 'X. Tratamiento de datos sensibles',
-      paragraphs: [
-        'La organización responsable no recolectará ni tratará datos sensibles salvo que sea estrictamente necesario y exista autorización previa, expresa e informada, o se configure una excepción legal. Las respuestas sobre datos sensibles son facultativas y no se condicionará la prestación de un servicio a su entrega cuando no sea indispensable.'
+      id: 'derechos',
+      title: '7. Derechos del titular',
+      items: [
+        'Conocer, actualizar y rectificar sus datos personales.',
+        'Solicitar prueba de la autorización y ser informado sobre el uso de sus datos.',
+        'Solicitar la supresión de sus datos o revocar la autorización cuando proceda legalmente.',
+        'Presentar consultas, quejas o reclamos ante el responsable y ante la Superintendencia de Industria y Comercio.'
       ]
     },
     {
-      id: 'transferencias',
-      title: 'XI. Transmisión y transferencia',
+      id: 'canal',
+      title: '8. Consultas y reclamos',
       paragraphs: [
-        'La aplicación puede utilizar proveedores tecnológicos nacionales o internacionales, incluyendo plataformas de mensajería, alojamiento, analítica y correo de terceros. Las transmisiones y transferencias se realizarán con contratos, medidas de seguridad y autorizaciones o excepciones legales aplicables, procurando que el receptor ofrezca un nivel adecuado de protección.'
+        'Las solicitudes relacionadas con datos personales deben enviarse a camiloproyectos14@gmail.com e incluir el nombre del titular, una descripción clara de la solicitud y un medio de respuesta. Camilo Proyectos podrá solicitar información adicional para verificar la identidad del solicitante.',
+        'Las consultas y reclamos se atenderán dentro de los términos establecidos por la Ley 1581 de 2012 y sus normas reglamentarias.'
       ]
     },
     {
       id: 'vigencia',
-      title: 'XII. Vigencia',
+      title: '9. Vigencia y modificaciones',
       paragraphs: [
-        'Esta política rige desde el 22 de mayo de 2021. Los datos se conservarán durante el tiempo necesario para cumplir las finalidades informadas y las obligaciones legales. La política podrá actualizarse; los cambios sustanciales serán comunicados por los canales disponibles.'
+        'Esta política entra en vigencia el 9 de octubre de 2026. Camilo Proyectos podrá actualizarla cuando cambien el chatbot, los servicios, los proveedores o las normas aplicables. La versión vigente estará disponible en la URL informada por el chatbot.'
       ]
     }
   ]
@@ -181,8 +150,8 @@ function getPublishedPolicies() {
   return privacyPolicies.filter((policy) => policy.published);
 }
 
-function getStandardPrivacyPolicy() {
-  return standardPrivacyPolicy;
+function getChatbotPrivacyPolicy() {
+  return chatbotPrivacyPolicy;
 }
 
 function getPublishedPolicyById(id) {
@@ -191,8 +160,8 @@ function getPublishedPolicyById(id) {
 
 module.exports = {
   privacyPolicies,
-  standardPrivacyPolicy,
+  chatbotPrivacyPolicy,
   getPublishedPolicies,
-  getStandardPrivacyPolicy,
+  getChatbotPrivacyPolicy,
   getPublishedPolicyById
 };

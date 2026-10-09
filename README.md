@@ -7,7 +7,7 @@ Sitio web profesional de **Camilo Proyectos** (Node.js + Express + EJS), con enf
 - `src/app.js`: configuración Express, seguridad, rutas públicas, errores.
 - `src/server.js`: arranque del servidor (`HOST`/`PORT`).
 - `src/config/site.js`: identidad de marca, dominio base y configuración de contacto centralizada.
-- `src/data/privacyPolicies.js`: política estándar reutilizable para aplicaciones y política específica de Camilo Proyectos.
+- `src/data/privacyPolicies.js`: política del chatbot de Camilo Proyectos y política específica del sitio.
 - `src/modules/admin/adminRouter.js`: base para panel privado (pendiente implementación completa).
 - `src/views/`: vistas EJS (home, centro de privacidad, política individual, errores).
 - `public/`: CSS, JS y favicon.
@@ -80,15 +80,15 @@ Cobertura principal:
 
 ## Políticas de privacidad
 
-La política estándar para las aplicaciones está publicada en una ruta estable y fechada:
+La política del chatbot de Camilo Proyectos está publicada en una página independiente:
 
-- `/2021/05/22/politicas/`
+- `/politica-de-privacidad/`
 
 La web de Camilo Proyectos mantiene una política independiente:
 
 - `/privacidad/camilo-proyectos`
 
-Las aplicaciones deben enlazar a la política estándar. La política de Camilo solo describe el tratamiento de datos de este sitio y no se reutiliza como política de las aplicaciones.
+El chatbot debe enlazar directamente a `/politica-de-privacidad/`. La página se muestra sin el encabezado, pie de página ni controles de navegación del sitio principal.
 
 ## Panel de administración (base preparada)
 

@@ -22,10 +22,11 @@ test('GET /privacidad/camilo-proyectos returns published policy', async () => {
   assert.match(response.text, /Política de privacidad/);
 });
 
-test('GET /2021/05/22/politicas/ returns the standard application policy', async () => {
-  const response = await request(app).get('/2021/05/22/politicas/');
+test('GET /politica-de-privacidad/ returns the chatbot policy as a standalone page', async () => {
+  const response = await request(app).get('/politica-de-privacidad/');
   assert.equal(response.status, 200);
-  assert.match(response.text, /Política estándar de la aplicación/);
+  assert.match(response.text, /Política de Tratamiento de Datos Personales del Chatbot/);
+  assert.doesNotMatch(response.text, /site-header|site-footer|print-policy-button/);
   assert.match(response.text, /Política de Tratamiento de Datos Personales/);
 });
 
