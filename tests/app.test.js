@@ -22,6 +22,13 @@ test('GET /privacidad/camilo-proyectos returns published policy', async () => {
   assert.match(response.text, /Política de privacidad/);
 });
 
+test('GET /2021/05/22/politicas/ returns the standard application policy', async () => {
+  const response = await request(app).get('/2021/05/22/politicas/');
+  assert.equal(response.status, 200);
+  assert.match(response.text, /Política estándar de la aplicación/);
+  assert.match(response.text, /Política de Tratamiento de Datos Personales/);
+});
+
 test('GET /privacidad/negocio-inexistente returns 404', async () => {
   const response = await request(app).get('/privacidad/negocio-inexistente');
   assert.equal(response.status, 404);

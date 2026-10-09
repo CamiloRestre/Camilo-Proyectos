@@ -3,7 +3,11 @@ const express = require('express');
 const helmet = require('helmet');
 
 const { siteConfig } = require('./config/site');
-const { getPublishedPolicies, getPublishedPolicyById } = require('./data/privacyPolicies');
+const {
+  getPublishedPolicies,
+  getPublishedPolicyById,
+  getStandardPrivacyPolicy
+} = require('./data/privacyPolicies');
 const { validateContactPayload } = require('./utils/validation');
 const { adminRouter } = require('./modules/admin/adminRouter');
 
@@ -34,7 +38,7 @@ app.get('/robots.txt', (_req, res) => {
 });
 
 app.get('/sitemap.xml', (_req, res) => {
-  const pages = ['/', '/servicios', '/privacidad'];
+  const pages = ['/', '/servicios', '/privacidad', '/2021/05/22/politicas/'];
   const policyPages = getPublishedPolicies().map((policy) => `/privacidad/${policy.id}`);
   const urls = [...pages, ...policyPages]
     .map((url) => `<url><loc>${siteConfig.site.baseUrl}${url}</loc></url>`)
@@ -156,6 +160,19 @@ app.get('/privacidad', (_req, res) => {
 
 app.get('/privacy', (_req, res) => {
   res.redirect('/privacidad');
+});
+
+app.get('/2021/05/22/politicas/', (_req, res) => {
+  const policy = getStandardPrivacyPolicy();
+
+  return res.render('pages/standard-privacy-policy', {
+    seo: {
+      title: `${policy.title} | ${policy.businessName}`,
+      description: `Política estándar de tratamiento de datos personales de ${policy.businessName}.`,
+      canonical: `${siteConfig.site.baseUrl}/2021/05/22/politicas/`
+    },
+    policy
+  });
 });
 
 app.get('/privacidad/:id', (req, res, next) => {
