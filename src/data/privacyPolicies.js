@@ -4,7 +4,7 @@ const privacyPolicies = [
     businessName: 'Camilo Proyectos',
     legalName: '',
     dataController: {
-      name: 'Cristian Camilo Rescrepo',
+      name: 'Camilo Proyectos',
       role: 'Responsable del tratamiento para este sitio',
       email: 'camiloproyectos14@gmail.com',
       location: 'Tuluá, Valle del Cauca, Colombia'
@@ -57,7 +57,7 @@ const applicationPrivacyPolicy = {
   version: '1.0.0',
   lastUpdated: '2026-10-09',
   dataController: {
-    name: 'Cristian Camilo Rescrepo - Camilo Proyectos',
+    name: 'Camilo Proyectos',
     role: 'Responsable del tratamiento',
     email: 'camiloproyectos14@gmail.com',
     location: 'Tuluá, Valle del Cauca, Colombia'
@@ -156,7 +156,7 @@ const termsAndConditions = {
     {
       title: '1. Identificación y objeto',
       paragraphs: [
-        'Camilo Proyectos es una marca de Cristian Camilo Rescrepo, desarrollador de software freelancer ubicado en Tuluá, Valle del Cauca, Colombia.',
+        'Camilo Proyectos es un servicio de desarrollo de software ubicado en Tuluá, Valle del Cauca, Colombia.',
         'Estos términos regulan el acceso y uso de este sitio web, sus formularios de contacto y la información sobre servicios de desarrollo web, aplicaciones, chatbots, automatizaciones e integraciones.'
       ]
     },
