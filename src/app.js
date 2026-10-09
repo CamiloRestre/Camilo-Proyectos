@@ -118,7 +118,7 @@ app.get('/', (_req, res) => {
 });
 
 app.get('/servicios', (_req, res) => {
-  res.redirect('/#servicios');
+  res.redirect('/?seccion=servicios');
 });
 
 app.post('/contacto', (req, res) => {

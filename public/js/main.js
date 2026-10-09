@@ -1,13 +1,15 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
-const pendingSection = sessionStorage.getItem('camilo-scroll-section');
+const requestedSection = new URLSearchParams(window.location.search).get('seccion');
+const pendingSection = requestedSection || sessionStorage.getItem('camilo-scroll-section');
 if (pendingSection && window.location.pathname === '/') {
   const section = document.getElementById(pendingSection);
   sessionStorage.removeItem('camilo-scroll-section');
 
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', '/');
   }
 }
 
@@ -16,7 +18,8 @@ document.querySelectorAll('a[data-section]').forEach((link) => {
     const section = document.getElementById(link.dataset.section);
 
     if (!section) {
-      sessionStorage.setItem('camilo-scroll-section', link.dataset.section);
+      event.preventDefault();
+      window.location.assign(`/?seccion=${encodeURIComponent(link.dataset.section)}`);
       return;
     }
 
