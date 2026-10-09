@@ -1,5 +1,39 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
+document.documentElement.classList.add('js');
+
+const progressBar = document.querySelector('.scroll-progress span');
+const updateScrollProgress = () => {
+  if (!progressBar) return;
+
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+  progressBar.style.width = `${Math.min(progress, 100)}%`;
+};
+
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+updateScrollProgress();
+
+const revealItems = document.querySelectorAll('main .section, main .card');
+revealItems.forEach((item, index) => {
+  item.classList.add('reveal-on-scroll');
+  item.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
+});
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+}
 
 const requestedSection = new URLSearchParams(window.location.search).get('seccion');
 let storedSection = null;
