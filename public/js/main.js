@@ -1,6 +1,36 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
+const pendingSection = sessionStorage.getItem('camilo-scroll-section');
+if (pendingSection && window.location.pathname === '/') {
+  const section = document.getElementById(pendingSection);
+  sessionStorage.removeItem('camilo-scroll-section');
+
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+document.querySelectorAll('a[data-section]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const section = document.getElementById(link.dataset.section);
+
+    if (!section) {
+      sessionStorage.setItem('camilo-scroll-section', link.dataset.section);
+      return;
+    }
+
+    event.preventDefault();
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', '/');
+
+    if (nav && menuToggle) {
+      nav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => {
     const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
